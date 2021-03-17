@@ -59,9 +59,3 @@ def calculate(x:float) -> float:
         return finalResult
     except:
         return 0
-try:
-    x=input('>')
-    x=float(x)
-    print(calculate(x))
-except:
-    print(0)
