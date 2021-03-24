@@ -11,21 +11,27 @@ def factorial(b):
     return result
 
 def exponent(x:float)-> float:
-    result=0
-    for i in range(70):
-        result=result+(power(x,i)/factorial(i))
-    return float(result)
+    try:
+        result=0
+        for i in range(70):
+            result=result+(power(x,i)/factorial(i))
+        return float(result)
+    except:
+        return float(0)
 
 def Ln(x:float)-> float:
-    if x<=0:
+    try:
+        if x<=0:
+            return float(0)
+        else:
+            Yn=0
+            result=x-1.0
+            while((Yn-result)>0.001 or (result-Yn)>0.001):
+                Yn=result
+                result= result+ 2*((x-exponent(result))/(x+exponent(result)))
+            return float(result)
+    except:
         return float(0)
-    else:
-        Yn=0
-        result=x-1.0
-        while((Yn-result)>0.001 or (result-Yn)>0.001):
-            Yn=result
-            result= result+ 2*((x-exponent(result))/(x+exponent(result)))
-        return float(result)
 
 def XtimesY(x:float,y:float)-> float:
     try:    
@@ -57,3 +63,4 @@ def calculate(x:float) -> float:
         return finalResult
     except:
         return float(0)
+
